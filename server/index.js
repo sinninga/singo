@@ -7,7 +7,7 @@ dotenv.config()
 
 var spotify_client_id = process.env.SPOTIFY_CLIENT_ID
 var spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET
-console.log(spotify_client_id);
+
 const app = express();
 
 app.get('/auth/login', (req, res) => {
