@@ -11,6 +11,7 @@
     opacity: 70%;
     color: black;
     background-color: rgb(119, 216, 132);
+    border-radius: 50%;
 }
 
 .btn-controls:hover {
@@ -36,4 +37,5 @@
 
 .now-playing-cover {
     margin-bottom: 1rem;
+    border-radius: 50%;
 }
