@@ -1,0 +1,41 @@
+.btn-container {
+    display: flex;
+}
+
+.btn-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.7rem;
+    margin: 1rem;
+    opacity: 70%;
+    color: black;
+    background-color: rgb(119, 216, 132);
+    border-radius: 50%;
+}
+
+.btn-controls:hover {
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    padding: 1.7rem;
+    margin: 1rem;
+    opacity: 100%;
+    background-color: rgb(119, 216, 132);
+    border-color: rgb(119, 216, 132);
+}
+
+.main-wrapper {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.now-playing-cover {
+    margin-bottom: 1rem;
+    border-radius: 50%;
+}
