@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './webplayback.css';
+import Navbar from './navbar';
 
 const track = {
     name: "",
@@ -71,6 +72,7 @@ function WebPlayback(props) {
 
    return (
       <>
+        <Navbar />
         <div className="container">
             <h1 className="name">SLiNGO</h1>
             <div className="main-wrapper">
