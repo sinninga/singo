@@ -72,7 +72,7 @@ function WebPlayback(props) {
    return (
       <>
         <div className="container">
-            <h1 className="name">SINGO</h1>
+            <h1 className="name">SLiNGO</h1>
             <div className="main-wrapper">
                 <img src={current_track.album.images[0].url} 
                      className="now-playing-cover" alt="" />
