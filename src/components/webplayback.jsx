@@ -40,7 +40,7 @@ function WebPlayback(props) {
       <>
         <div className="container">
            <div className="main-wrapper">
-            <h1>SPOOTIFY</h1>
+            <h1>SINGO PLAYBACK</h1>
             </div>
         </div>
       </>

@@ -1,0 +1,40 @@
+.btn-spotify {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.7rem;
+    opacity: 70%;
+    color: black;
+    background-color: rgb(119, 216, 132);
+    border-radius: 0.5rem;
+}
+
+.btn-spotify:hover {
+    opacity: 100%;
+    color: white;
+    text-decoration: none;
+}
+
+.btn-spotify:active {
+    opacity: 100%;
+    color: white;
+    text-decoration: none;
+    transform: translateX(2%);
+    transform: translateY(2%);
+}
+
+.singo {
+    margin: 2rem;
+}
+
+.App {
+    background-color: black;
+}
+
+.App-header {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+}
+
