@@ -41,3 +41,7 @@
     margin-bottom: 1rem;
     border-radius: 50%;
 }
+
+.now-playing__artist {
+    color: rgb(119, 216, 132);
+}

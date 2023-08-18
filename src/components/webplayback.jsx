@@ -20,6 +20,8 @@ function WebPlayback(props) {
   const [is_paused, setPaused] = useState(false);
   const [is_active, setActive] = useState(false);
   const [current_track, setTrack] = useState(track);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [totalDuration, setTotalDuration] = useState(0);
 
 
   useEffect(() => {
@@ -55,6 +57,11 @@ function WebPlayback(props) {
         
             setTrack(state.track_window.current_track);
             setPaused(state.paused);
+
+            if (state.position && state.duration) {
+                setCurrentTime(state.position / 1000); // Convert ms to seconds
+                setTotalDuration(state.duration / 1000); // Convert ms to seconds
+            }
         
         
             player.getCurrentState().then( state => { 
@@ -68,6 +75,28 @@ function WebPlayback(props) {
 
     };
 }, []);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            player.getCurrentState().then((state) => {
+                if (state && state.position) {
+                    setCurrentTime(state.position / 1000);
+                    setTotalDuration(state.duration / 1000);
+                }
+            });
+        }, 500); // Update every second
+
+        return () => {
+            clearInterval(interval);
+        };
+    }, [player]);
+
+    function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = Math.floor(seconds % 60);
+        const formattedTime = `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+        return formattedTime;
+    }
 
 
    return (
@@ -84,6 +113,9 @@ function WebPlayback(props) {
                     </div>
                     <div className="now-playing__artist">
                         {current_track.artists[0].name}
+                    </div>
+                    <div className="track-time">
+                        <span>{formatTime(currentTime)}</span> / <span>{formatTime(totalDuration)}</span>
                     </div>
                 </div>
             </div>
