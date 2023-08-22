@@ -123,7 +123,7 @@ function WebPlayback(props) {
                 <button className="btn-controls" onClick={() => { player.previousTrack() }} >
                     &lt;&lt;
                 </button>
-                <button className="btn-controls" onClick={() => { player.togglePlay() }} >
+                <button className="btn-controls play-button" onClick={() => { player.togglePlay() }} >
                     { is_paused ? "PLAY" : "PAUSE" }
                 </button>
                 <button className="btn-controls" onClick={() => { player.nextTrack() }} >
