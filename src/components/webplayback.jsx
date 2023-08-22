@@ -104,6 +104,7 @@ function WebPlayback(props) {
         <Navbar />
         <div className="container">
             <h1 className="name">SLiNGO</h1>
+            {current_track.name && (
             <div className="main-wrapper">
                 <img src={current_track.album.images[0].url} 
                      className="now-playing-cover" alt="" />
@@ -119,6 +120,8 @@ function WebPlayback(props) {
                     </div>
                 </div>
             </div>
+            )}
+            {current_track.name && (
             <div className="btn-container">
                 <button className="btn-controls" onClick={() => { player.previousTrack() }} >
                     &lt;&lt;
@@ -130,6 +133,7 @@ function WebPlayback(props) {
                     &gt;&gt;
                 </button>
             </div>
+            )}
         </div>
       </>
     );
