@@ -4,6 +4,7 @@ import Navbar from './navbar';
 
 const track = {
     name: "",
+    id: "",
     album: {
         images: [
             { url: "" }
@@ -44,6 +45,14 @@ function WebPlayback(props) {
 
         player.addListener('ready', ({ device_id }) => {
             console.log('Ready with Device ID', device_id);
+            fetch(`https://api.spotify.com/v1/me/player/play?device_id=${device_id}`, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `Bearer ${props.token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ uris: [`spotify:track:${"5rzbYLGXo9OcFVbi2bGM9U?si=f4c7b6f9e6b54e2e"}`] })
+            });
         });
 
         player.addListener('not_ready', ({ device_id }) => {
