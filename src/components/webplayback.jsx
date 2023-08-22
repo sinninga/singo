@@ -103,7 +103,8 @@ function WebPlayback(props) {
       <>
         <Navbar />
         <div className="container">
-            <h1 className="name">SLiNGO</h1>
+            {!current_track.name && (
+            <h1 className="name">SLiNGO</h1>)}
             {current_track.name && (
             <div className="main-wrapper">
                 <img src={current_track.album.images[0].url} 
