@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './webplayback.css';
 import Navbar from './navbar';
+import Search from './search';
 
 const track = {
     name: "",
@@ -114,6 +115,7 @@ function WebPlayback(props) {
         <div className="container">
             {!current_track.name && (
             <h1 className="name">SLiNGO</h1>)}
+            <Search />
             {current_track.name && (
             <div className="main-wrapper">
                 <img src={current_track.album.images[0].url} 
