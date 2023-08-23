@@ -76,8 +76,9 @@
 }
 
 .song-btn {
-    max-height: 40px;
-    max-width: 100px;
+    max-height: 50px;
+    width: 100px;
+    border-radius: 7%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,3 +104,7 @@
 .track-info h4 {
     margin: 0;
   }
+
+.name {
+    margin-bottom: 0;
+}

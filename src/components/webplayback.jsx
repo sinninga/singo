@@ -152,7 +152,7 @@ function WebPlayback(props) {
                                     <div key={track.id} className='song'>
                                         <img src={track.album.images[0].url}  className="album-art" alt="" />
                                         <h4 className='track-info'>{track.name} - {track.artists[0].name}</h4>
-                                        <button className="song-btn" onClick={() => playSelectedTrack(track.uri)}>Play</button>
+                                        <button className="song-btn" onClick={() => playSelectedTrack(track.uri)}>PLAY</button>
                                     </div>
                                 ))}
                             </div>

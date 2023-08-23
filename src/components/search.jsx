@@ -39,7 +39,7 @@ const Search = ({ onSearch, onSelectTrack, accessToken }) => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <button type="submit" className='search-btn'>Search</button>
+        <button type="submit" className='search-btn'>SEARCH</button>
         </div>
         </form>
     </div>
