@@ -74,8 +74,8 @@ function WebPlayback(props) {
             setPaused(state.paused);
 
             if (state.position && state.duration) {
-                setCurrentTime(state.position / 1000); // Convert ms to seconds
-                setTotalDuration(state.duration / 1000); // Convert ms to seconds
+                setCurrentTime(state.position / 1000); 
+                setTotalDuration(state.duration / 1000); 
             }
         
         
@@ -99,7 +99,7 @@ function WebPlayback(props) {
                     setTotalDuration(state.duration / 1000);
                 }
             });
-        }, 500); // Update every second
+        }, 500);
 
         return () => {
             clearInterval(interval);
@@ -114,7 +114,7 @@ function WebPlayback(props) {
     }
 
     const playSelectedTrack = async (trackUri) => {
-        console.log('Play selected track:', trackUri); // Log the track URI
+        console.log('Play selected track:', trackUri); 
         if (!deviceID) {
             console.error('Device ID not available.');
             return;
@@ -158,41 +158,41 @@ function WebPlayback(props) {
                             </div>
                         </div>
                     )}
-                    </div>
-                <div className="track-info-container">                  
-            {current_track.name && (
-            <div className="main-wrapper">
-                <img src={current_track.album.images[0].url} 
-                     className="now-playing-cover" alt="" />
-                <div className="now-playing-side">
-                    <div className="now-playing__name">
-                        {current_track.name}
-                    </div>
-                    <div className="now-playing__artist">
-                        {current_track.artists[0].name}
-                    </div>
-                    <div className="track-time">
-                        <span>{formatTime(currentTime)}</span> / <span>{formatTime(totalDuration)}</span>
-                    </div>
                 </div>
-            </div>
-            )}
-            </div> 
-            <div className="playback-controls">
-            {current_track.name && (
-            <div className="btn-container">
-                <button className="btn-controls" onClick={() => { player.previousTrack() }} >
-                    &lt;&lt;
-                </button>
-                <button className="btn-controls play-button" onClick={() => { player.togglePlay() }} >
-                    { is_paused ? "PLAY" : "PAUSE" }
-                </button>
-                <button className="btn-controls" onClick={() => { player.nextTrack() }} >
-                    &gt;&gt;
-                </button>
-            </div>
-            )}
-            </div>
+                <div className="track-info-container">                  
+                    {current_track.name && (
+                    <div className="main-wrapper">
+                        <img src={current_track.album.images[0].url} 
+                            className="now-playing-cover" alt="" />
+                        <div className="now-playing-side">
+                            <div className="now-playing__name">
+                                {current_track.name}
+                            </div>
+                            <div className="now-playing__artist">
+                                {current_track.artists[0].name}
+                            </div>
+                            <div className="track-time">
+                                <span>{formatTime(currentTime)}</span> / <span>{formatTime(totalDuration)}</span>
+                            </div>
+                        </div>
+                    </div>
+                    )}
+                </div> 
+                <div className="playback-controls">
+                    {current_track.name && (
+                    <div className="btn-container">
+                        <button className="btn-controls" onClick={() => { player.previousTrack() }} >
+                            &lt;&lt;
+                        </button>
+                        <button className="btn-controls play-button" onClick={() => { player.togglePlay() }} >
+                            { is_paused ? "PLAY" : "PAUSE" }
+                        </button>
+                        <button className="btn-controls" onClick={() => { player.nextTrack() }} >
+                            &gt;&gt;
+                        </button>
+                    </div>
+                    )}
+                </div>
             </div>
         </div>
       </>
