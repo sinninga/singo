@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './webplayback.css';
+import '../styles/webplayback.css';
 import Navbar from './navbar';
 import Search from './search';
 
