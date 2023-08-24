@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import '../styles/webplayback.css';
 import Navbar from './navbar';
 import Search from './search';
+import TrackInfo from './trackInfo';
+
 
 const track = {
     name: "",
@@ -51,14 +53,6 @@ function WebPlayback(props) {
         player.addListener('ready', ({ device_id }) => {
             console.log('Ready with Device ID', device_id);
             setDeviceID(device_id);
-            // fetch(`https://api.spotify.com/v1/me/player/play?device_id=${device_id}`, {
-            //     method: 'PUT',
-            //     headers: {
-            //         'Authorization': `Bearer ${props.token}`,
-            //         'Content-Type': 'application/json'
-            //     },
-            //     body: JSON.stringify({ uris: [`spotify:track:${"5rzbYLGXo9OcFVbi2bGM9U?si=f4c7b6f9e6b54e2e"}`] })
-            // });
         });
 
         player.addListener('not_ready', ({ device_id }) => {
@@ -135,7 +129,7 @@ function WebPlayback(props) {
         }
     };
 
-
+    
    return (
       <>
         <Navbar />
@@ -143,56 +137,20 @@ function WebPlayback(props) {
             {!current_track.name && (
             <h1 className="name">SLiNGO</h1>)}
             <div className="everything">
-                <div className="search-component-container">
-                    <Search onSearch={setSearchResults} onSelectTrack={playSelectedTrack} accessToken={props.token} />
-                    {searchResults.length > 0 && (
-                        <div className="search-results">
-                            <div>
-                                {searchResults.map((track) => (
-                                    <div key={track.id} className='song'>
-                                        <img src={track.album.images[0].url}  className="album-art" alt="" />
-                                        <h4 className='track-info'>{track.name} - {track.artists[0].name}</h4>
-                                        <button className="song-btn" onClick={() => playSelectedTrack(track.uri)}>PLAY</button>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    )}
-                </div>
-                <div className="track-info-container">                  
-                    {current_track.name && (
-                    <div className="main-wrapper">
-                        <img src={current_track.album.images[0].url} 
-                            className="now-playing-cover" alt="" />
-                        <div className="now-playing-side">
-                            <div className="now-playing__name">
-                                {current_track.name}
-                            </div>
-                            <div className="now-playing__artist">
-                                {current_track.artists[0].name}
-                            </div>
-                            <div className="track-time">
-                                <span>{formatTime(currentTime)}</span> / <span>{formatTime(totalDuration)}</span>
-                            </div>
-                        </div>
-                    </div>
-                    )}
-                </div> 
-                <div className="playback-controls">
-                    {current_track.name && (
-                    <div className="btn-container">
-                        <button className="btn-controls" onClick={() => { player.previousTrack() }} >
-                            &lt;&lt;
-                        </button>
-                        <button className="btn-controls play-button" onClick={() => { player.togglePlay() }} >
-                            { is_paused ? "PLAY" : "PAUSE" }
-                        </button>
-                        <button className="btn-controls" onClick={() => { player.nextTrack() }} >
-                            &gt;&gt;
-                        </button>
-                    </div>
-                    )}
-                </div>
+                <Search 
+                    onSearch={setSearchResults} 
+                    onSelectTrack={playSelectedTrack} 
+                    searchResults={searchResults} 
+                    accessToken={props.token} 
+                />
+                <TrackInfo
+                    current_track={current_track}
+                    currentTime={currentTime}
+                    totalDuration={totalDuration}
+                    formatTime={formatTime}
+                    player={player}
+                    is_paused={is_paused}
+                />
             </div>
         </div>
       </>

@@ -1,3 +1,9 @@
+.search-component-container {
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+}
+
 .search-container {
     display: flex;
     /* flex-direction: column; */
@@ -5,24 +11,6 @@
     align-items: center;
     gap: 0rem;
     margin-bottom: 1.0rem;
-}
-
-.search-btn {
-    background-color: white;
-    color: black;
-    height: 47.44px;
-    border:3px solid white;
-    border-left: none;
-    border-radius: 30px;
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-}
-
-.search-btn:hover {
-    color: white;
-    background-color: rgb(119, 216, 132);
-    border: 3px solid white;
-    border-left: none;
 }
 
 .search-form {
@@ -61,4 +49,65 @@
 
 .search-form:focus::placeholder {
     color: transparent;
+}
+
+.search-btn {
+    background-color: white;
+    color: black;
+    height: 47.44px;
+    border:3px solid white;
+    border-left: none;
+    border-radius: 30px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.search-btn:hover {
+    color: white;
+    background-color: rgb(119, 216, 132);
+    border: 3px solid white;
+    border-left: none;
+}
+
+.song {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.album-art {
+    max-height: 50px;
+    max-width: 50px;
+    margin-right: 20px;
+    border-radius: 7%;
+}
+
+.track-info {
+    color: white;
+    display: flex;
+    flex-grow: 1;
+    margin-right: 20px;
+}
+
+.track-info h4 {
+    margin: 0;
+  }
+
+.song-btn {
+    max-height: 50px;
+    width: 100px;
+    border-radius: 7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    opacity: 70%;
+    color: black;
+    background-color: rgb(119, 216, 132);
+    margin-left: auto;
+}
+
+.song-btn:hover {
+    opacity: 100%;
+    color: white;
 }
