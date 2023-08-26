@@ -1,17 +1,12 @@
 import express from 'express';
-import dotenv from 'dotenv';
 import request from 'request';
 import cors from 'cors'; 
+import { spotify_client_id, spotify_client_secret } from './spotifyConfig.js';
 
 
 const router = express.Router(); 
 
 const port = 5000
-
-dotenv.config()
-
-var spotify_client_id = process.env.SPOTIFY_CLIENT_ID
-var spotify_client_secret = process.env.SPOTIFY_CLIENT_SECRET
 
 const app = express();
 app.use(cors());
