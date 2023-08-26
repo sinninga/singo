@@ -19,13 +19,6 @@ app.use(router);
 
 var access_token = "";
 
-
-// app.get('/auth/login', (req, res) => {
-// });
-
-// app.get('/auth/callback', (req, res) => {
-// });
-
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`)
 })

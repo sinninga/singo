@@ -23,8 +23,8 @@ const Search = ({ onSearch, onSelectTrack, accessToken, searchResults }) => {
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    const searchResults = await fetchSearchResults(searchQuery, 1); // Implement this function
-    console.log('Search results:', searchResults); // Log the search results
+    const searchResults = await fetchSearchResults(searchQuery, 1); 
+    console.log('Search results:', searchResults); 
     onSearch(searchResults);
   };
 
