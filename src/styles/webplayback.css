@@ -2,8 +2,22 @@
     margin-bottom: 0;
 }
 
+.all {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
 .everything {
     display: flex;
     flex-direction: column;
+}
+
+.lyrics-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10%;
+    padding: 5rem;
 }
 
