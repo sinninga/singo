@@ -138,24 +138,28 @@ function WebPlayback(props) {
         <div className="container">
             {!current_track.name && (
             <h1 className="name">SLiNGO</h1>)}
-            <div className="everything">
-                <Search 
-                    onSearch={setSearchResults} 
-                    onSelectTrack={playSelectedTrack} 
-                    searchResults={searchResults} 
-                    accessToken={props.token} 
-                />
-                <TrackInfo
-                    current_track={current_track}
-                    currentTime={currentTime}
-                    totalDuration={totalDuration}
-                    formatTime={formatTime}
-                    player={player}
-                    is_paused={is_paused}
-                />
-                <Lyrics 
-                    trackUri={selectedTrack}
-                />
+            <div className="all">
+                <div className="everything">
+                    <Search 
+                        onSearch={setSearchResults} 
+                        onSelectTrack={playSelectedTrack} 
+                        searchResults={searchResults} 
+                        accessToken={props.token} 
+                    />
+                    <TrackInfo
+                        current_track={current_track}
+                        currentTime={currentTime}
+                        totalDuration={totalDuration}
+                        formatTime={formatTime}
+                        player={player}
+                        is_paused={is_paused}
+                    />
+                </div>
+                <div className="lyrics-container">
+                    <Lyrics 
+                        trackUri={selectedTrack}
+                    />
+                </div>
             </div>
         </div>
       </>
