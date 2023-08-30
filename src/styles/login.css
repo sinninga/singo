@@ -1,3 +1,18 @@
+.App {
+    background-color: black;
+}
+
+.App-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.slingo {
+    margin: 2rem;
+}
+
 .btn-spotify {
     display: flex;
     justify-content: center;
@@ -21,20 +36,5 @@
     text-decoration: none;
     transform: translateX(1.8%);
     transform: translateY(1.8%);
-}
-
-.singo {
-    margin: 2rem;
-}
-
-.App {
-    background-color: black;
-}
-
-.App-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
