@@ -3,6 +3,7 @@ import '../styles/webplayback.css';
 import Navbar from './navbar';
 import Search from './search';
 import TrackInfo from './trackInfo';
+import Lyrics from './lyrics';
 
 
 const track = {
@@ -123,6 +124,7 @@ function WebPlayback(props) {
                 },
                 body: JSON.stringify({ uris: [trackUri] })
             });
+            setSelectedTrack(trackUri); // Update the selectedTrack state
             setIsPlaying(true);
         } catch (error) {
             console.error('Error playing track:', error);
@@ -150,6 +152,9 @@ function WebPlayback(props) {
                     formatTime={formatTime}
                     player={player}
                     is_paused={is_paused}
+                />
+                <Lyrics 
+                    trackUri={selectedTrack}
                 />
             </div>
         </div>
