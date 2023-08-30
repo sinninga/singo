@@ -1,16 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/lyrics.css';
 
-function Lyrics() {
+function Lyrics(props) {
+
+    const [lyrics, setLyrics] = useState('');
+
+    useEffect(() => {
+        if (props.trackUri) {
+            const trackId = props.trackUri.split(':').pop();
+            console.log(trackId);
+            const apiURL = `https://spotify-lyric-api.herokuapp.com/?url=https://open.spotify.com/track/${trackId}`;
+            console.log(apiURL);
+
+            fetch(apiURL)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    if (data && data.lines) {
+                        const lyricsText = data.lines.map(line => line.words).join(' ');
+                        setLyrics(lyricsText);
+                        console.log(lyricsText);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching lyrics:', error);
+                });
+        }
+    }, [props.trackUri]);
+
     return (
         <div className="lyrics-container">
-            <p className="lyrics">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                Voluptate eos harum ipsum beatae neque quia sint vero omnis inventore praesentium rem quidem consequuntur aperiam, quaerat mollitia? 
-                Soluta obcaecati doloribus a.
-                Laborum quam dolores voluptate doloremque recusandae possimus doloribus obcaecati! 
-                Ipsam atque repellat expedita! Quis quasi nostrum vero totam deleniti nesciunt. 
-                Recusandae totam ipsam expedita excepturi dolor sint tempora sequi saepe.
+            <p>
+                {lyrics || (props.trackUri ? 'Loading lyrics...' : 'Select a track to see lyrics')}
             </p>
         </div>
     );
