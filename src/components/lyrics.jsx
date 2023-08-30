@@ -30,7 +30,7 @@ function Lyrics(props) {
 
     return (
         <div className="lyrics">
-            <p>
+            <p className='lyrics-text'>
                 {lyrics || (props.trackUri ? 'Loading lyrics...' : 'Select a track to see lyrics')}
             </p>
         </div>
