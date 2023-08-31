@@ -158,6 +158,7 @@ function WebPlayback(props) {
                 <div className="lyrics-container">
                     <Lyrics 
                         trackUri={selectedTrack}
+                        currentTime={currentTime}
                     />
                 </div>
             </div>

@@ -1,3 +1,15 @@
-.lyrics-text {
-    color: rgb(119, 216, 132);
+
+.previous {
+    background-color: white;
+    padding: 1rem;
+    color: black;
+    font-size: 1.5rem;
+}
+
+.upcoming {
+    background-color: rgb(119, 216, 132);
+    padding: 1rem;
+    color: white;
+    margin-top: 2rem;
+    font-size: 1.5rem;
 }
