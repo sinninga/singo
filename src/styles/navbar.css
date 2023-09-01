@@ -11,10 +11,6 @@
     color: black;
     z-index: 1000; 
   }
-
-  .navbar:hover {
-    cursor: pointer;
-  }
   
   .logo {
     font-size: 1.5rem;
@@ -23,6 +19,7 @@
 
   .logo:hover {
     color: white;
+    cursor: pointer;
   }
   
   .nav-links {
