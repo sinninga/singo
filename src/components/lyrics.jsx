@@ -8,6 +8,9 @@ function Lyrics(props) {
     const [previousLine, setPreviousLine] = useState('');
     const [currentLine, setCurrentLine] = useState('');
     const [upcomingLine, setUpcomingLine] = useState('');
+    const [translatedLyrics, setTranslatedLyrics] = useState('');
+    const [translatedPreviousLine, setTranslatedPreviousLine] = useState('');
+    const [translatedUpcomingLine, setTranslatedUpcomingLine] = useState('');
 
 
     useEffect(() => {
@@ -48,16 +51,24 @@ function Lyrics(props) {
 
                         if (closestLine) {
                             setNextLine(closestLine.words);
+                            translateLine(closestLine.words, setTranslatedLyrics);
                         } else {
                             setLyrics("No lyrics found for the current time.");
+                            setTranslatedLyrics("");
                         }
 
                         if (previousLine) {
                             setPreviousLine(previousLine.words);
+                            translateLine(previousLine.words, setTranslatedPreviousLine);
+                        } else {
+                            setTranslatedPreviousLine("");
                         }
 
                         if (upcomingLine) {
                             setUpcomingLine(upcomingLine.words);
+                            translateLine(upcomingLine.words, setTranslatedUpcomingLine);
+                        } else {
+                            setTranslatedUpcomingLine("");
                         }
                     }
                 })
@@ -66,6 +77,30 @@ function Lyrics(props) {
                 });
         }
     }, [props.trackUri, props.currentTime]);
+
+    const translateLine = (line, setStateFunction) => {
+        const deepLApiURL = 'http://localhost:5000/translate';
+
+        const translationRequest = {
+            text: line,
+            targetLang: 'EN', // Replace with your target language code
+        };
+
+        fetch(deepLApiURL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(translationRequest),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                setStateFunction(data.translatedText);
+            })
+            .catch((error) => {
+                console.error('Error fetching and translating lyrics:', error);
+            });
+    };
 
     useEffect(() => {
         if (nextLine) {
@@ -77,8 +112,10 @@ function Lyrics(props) {
         <div className="lyrics">
             <div className='lyrics-text'>
                 <p className='previous'>{previousLine}</p>
+                <p className="translated-previous">{translatedPreviousLine}</p>
                 {/* <p className="current">{currentLine }</p> */}
-                <p className="upcoming">{upcomingLine}</p>            
+                <p className="upcoming">{upcomingLine}</p>  
+                <p className="translated-upcoming">{translatedUpcomingLine}</p>          
             </div>
         </div>
     );
