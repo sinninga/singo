@@ -77,7 +77,7 @@ function Lyrics(props) {
         <div className="lyrics">
             <div className='lyrics-text'>
                 <p className='previous'>{previousLine}</p>
-                <p className="current">{currentLine }</p>
+                {/* <p className="current">{currentLine }</p> */}
                 <p className="upcoming">{upcomingLine}</p>            
             </div>
         </div>
