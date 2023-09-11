@@ -14,6 +14,11 @@
     flex: 1;
 }
 
+.everything.active {
+    animation: slideIn 1.3s ease;
+    transform: translateX(0);
+}
+
 .lyrics-container {
     display: flex;
     flex-direction: column;
@@ -23,3 +28,16 @@
     max-height: 300px; 
 }
 
+.lyrics-container.active {
+    animation: slideIn 1.3s ease;
+    transform: translateX(0);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%); /* Start off-screen to the right */
+    }
+    to {
+        transform: translateX(0); /* Move to the original position */
+    }
+}
