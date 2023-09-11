@@ -132,14 +132,14 @@ function WebPlayback(props) {
     };
 
     
-   return (
-      <>
+    return (
+        <>
         <Navbar />
         <div className="container">
             {!current_track.name && (
             <h1 className="name">SLiNGO</h1>)}
-            <div className="all">
-                <div className="everything">
+            <div className={`all ${is_active ? 'active' : ''}`}>
+                <div className={`everything ${is_active ? 'active' : ''}`}>
                     <Search 
                         onSearch={setSearchResults} 
                         onSelectTrack={playSelectedTrack} 
@@ -156,16 +156,16 @@ function WebPlayback(props) {
                     />
                 </div>
                 {is_active && selectedTrack && (
-                <div className="lyrics-container">
+                <div className={`lyrics-container ${is_active ? 'active' : ''}`}>
                     <Lyrics 
-                        trackUri={selectedTrack}
-                        currentTime={currentTime}
+                    trackUri={selectedTrack}
+                    currentTime={currentTime}
                     />
                 </div>
                 )}
             </div>
         </div>
-      </>
+        </>
     );
 }
 
