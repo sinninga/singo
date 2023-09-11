@@ -155,12 +155,14 @@ function WebPlayback(props) {
                         is_paused={is_paused}
                     />
                 </div>
+                {is_active && selectedTrack && (
                 <div className="lyrics-container">
                     <Lyrics 
                         trackUri={selectedTrack}
                         currentTime={currentTime}
                     />
                 </div>
+                )}
             </div>
         </div>
       </>
