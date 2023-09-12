@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/lyrics.css';
+import '../styles/lyricsAnimation.css';
+
 
 function Lyrics(props) {
   const [lyricsData, setLyricsData] = useState([]);
@@ -102,7 +104,7 @@ function Lyrics(props) {
 
   return (
     <div className="lyrics">
-      <div className='lyrics-text'>
+      <div className={`lyrics-text ${currentIndex === -1 ? 'intro-animation' : ''}`}>
         {currentIndex >= 0 && (
           <>
             {/* <p className='previous'>{lyricsData[currentIndex - 1]?.words}</p>
@@ -114,6 +116,14 @@ function Lyrics(props) {
           </>
         )}
       </div>
+      {currentIndex === -1 && (
+      <div className="animation-container">
+        <div className="simple-shape one"></div>
+        <div className="simple-shape two"></div>
+        <div className="simple-shape three"></div>
+        <div className="simple-shape four"></div>
+      </div>
+      )}
     </div>
   );
 }

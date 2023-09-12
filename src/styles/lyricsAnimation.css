@@ -1,0 +1,70 @@
+.animation-container {
+  display: flex;
+  animation: slideUp 3s ease;
+  transform: translateY(0);
+}
+
+.simple-shape {
+    width: 2.6rem;
+    height: 2.6rem;
+    display: inline-block;
+    margin: 37px;
+    border-radius: 50%;
+  }
+  
+  .one {
+    background-color: rgb(119, 216, 132);
+    -webkit-animation: simple-scale 4s 4s linear infinite alternate;
+    animation: simple-scale 2s 2s linear infinite alternate;
+  }
+  
+  .two {
+    background-color: white;
+    -webkit-animation: simple-move 1s 1s linear infinite alternate;
+    animation: simple-move 0.7s 0.7s linear infinite alternate;
+  }
+  
+  .three {
+    background-color: rgb(119, 216, 132);
+    -webkit-animation: simple-scale 1s 1s linear infinite alternate;
+    animation: simple-scale 0.5s 0.5s linear infinite alternate;
+  }
+  
+  .four {
+    background-color: white;
+    -webkit-animation: simple-move 2s 2s linear infinite alternate;
+    animation: simple-move 2s 2s linear infinite alternate;
+  }
+  
+  @-webkit-keyframes simple-scale {
+    100% {
+      -webkit-transform: scale(2);
+    }
+  }
+  
+  @keyframes simple-scale {
+    100% {
+      transform: scale(2);
+    }
+  }
+  
+  @-webkit-keyframes simple-move {
+    100% {
+      -webkit-transform: translate(4rem, 0);
+    }
+  }
+  
+  @keyframes simple-move {
+    100% {
+      transform: translate(3rem, 0);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateX(-100%); /* Start off-screen to the right */
+    }
+    to {
+      transform: translateX(0); /* Move to the original position */
+    }
+}
