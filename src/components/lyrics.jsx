@@ -11,6 +11,8 @@ function Lyrics(props) {
     previous: '',
     upcoming: '',
   });
+  const [selectedLanguage, setSelectedLanguage] = useState('EN'); // Default language is English
+
 
   useEffect(() => {
     if (!props.trackUri) {
@@ -82,7 +84,7 @@ function Lyrics(props) {
 
     const translationRequest = {
       text,
-      targetLang: 'EN', // Replace with your target language code
+      targetLang: selectedLanguage, // Replace with your target language code
     };
 
     try {
@@ -100,6 +102,11 @@ function Lyrics(props) {
       console.error('Error fetching and translating lyrics:', error);
       return ''; // Return an empty string if translation fails
     }
+  };
+
+  // Handle language selection change
+  const handleLanguageChange = (event) => {
+    setSelectedLanguage(event.target.value);
   };
 
   return (
@@ -124,6 +131,26 @@ function Lyrics(props) {
         <div className="simple-shape four"></div>
       </div>
       )}
+      {/* Dropdown menu for language selection */}
+      <div className="language-dropdown">
+        <select
+          id="languageSelect"
+          value={selectedLanguage}
+          onChange={handleLanguageChange}
+        >
+          <option value="EN">English</option>
+          <option value="FR">French</option>
+          <option value="ES">Spanish</option>
+          <option value="DE">German</option>
+          <option value="IT">Italian</option>
+          <option value="PT">Portuguese</option>
+          <option value="NL">Dutch</option>
+          <option value="RU">Russian</option>
+          <option value="ZH">Chinese</option>
+          <option value="JA">Japanese</option>
+          <option value="KO">Korean</option>
+        </select>
+      </div>
     </div>
   );
 }

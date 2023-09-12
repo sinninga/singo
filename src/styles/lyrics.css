@@ -48,3 +48,44 @@
     font-size: 2.5rem;
     margin: 0;
 }
+
+.language-dropdown {
+    display: flex;
+    justify-content: center;
+    animation: slideUp 3s ease;
+    transform: translateY(0);
+    z-index: 3;
+}
+
+.language-dropdown select {
+    padding: 0.4rem;
+    border: 5px solid rgb(119, 216, 132);
+    border-radius: 40px;
+    background-color: rgb(119, 216, 132);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    width: 9rem;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+
+  .language-dropdown select:hover {
+    background-color: white;
+    color: black;
+  }
+
+  .language-dropdown select:focus {
+    outline: none;
+  }
+  
+  @keyframes slideUp {
+    from {
+      transform: translateY(-250%); /* Start off-screen to the right */
+    }
+    to {
+      transform: translateY(0); /* Move to the original position */
+    }
+}
