@@ -1,6 +1,6 @@
 .animation-container {
   display: flex;
-  animation: slideUp 3s ease;
+  animation: slideRight 3s ease;
   transform: translateY(0);
 }
 
@@ -60,7 +60,7 @@
     }
   }
 
-  @keyframes slideUp {
+  @keyframes slideRight {
     from {
       transform: translateX(-100%); /* Start off-screen to the right */
     }
