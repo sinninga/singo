@@ -15,7 +15,7 @@
 }
 
 .everything.active {
-    animation: slideIn 1.3s ease;
+    animation: slideIn 3s ease;
     transform: translateX(0);
 }
 
@@ -28,10 +28,10 @@
     max-height: 300px; 
 }
 
-.lyrics-container.active {
+/* .lyrics-container.active {
     animation: slideIn 1.3s ease;
     transform: translateX(0);
-}
+} */
 
 @keyframes slideIn {
     from {
