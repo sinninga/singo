@@ -61,8 +61,8 @@
     padding: 0.4rem;
     border: 5px solid rgb(119, 216, 132);
     border-radius: 40px;
-    background-color: rgb(119, 216, 132);
-    color: white;
+    background-color: white;
+    color: black;
     font-size: 1.2rem;
     font-weight: 400;
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -73,12 +73,17 @@
   }
 
   .language-dropdown select:hover {
-    background-color: white;
-    color: black;
+    background-color: rgb(119, 216, 132);
+    color: white;
   }
 
   .language-dropdown select:focus {
     outline: none;
+  }
+
+  .lang {
+    background-color: white;
+    color: black;
   }
   
   @keyframes slideUp {
