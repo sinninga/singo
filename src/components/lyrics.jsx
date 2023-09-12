@@ -23,7 +23,12 @@ function Lyrics(props) {
     const apiURL = `https://spotify-lyric-api.herokuapp.com/?url=https://open.spotify.com/track/${trackId}`;
 
     fetch(apiURL)
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to fetch lyrics');
+        }
+        return response.json();
+      })
       .then(data => {
         console.log(data);
         if (data && data.lines) {
@@ -95,6 +100,10 @@ function Lyrics(props) {
         },
         body: JSON.stringify(translationRequest),
       });
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch translation');
+      }
 
       const data = await response.json();
       return data.translatedText;
