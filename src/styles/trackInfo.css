@@ -27,11 +27,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1.7rem;
+    padding: 1.3rem;
     margin: 1rem;
-    opacity: 70%;
+    /* opacity: 70%; */
     color: black;
-    background-color: rgb(119, 216, 132);
+    background-color: white;
+    /* border: 4px solid rgb(119, 216, 132); */
     border-radius: 50%;
 }
 
@@ -40,7 +41,19 @@
     color: white;
     justify-content: center;
     align-items: center;
-    padding: 1.7rem;
+    padding: 1.3rem;
+    margin: 1rem;
+    opacity: 100%;
+    background-color: rgb(119, 216, 132);
+    border-color: rgb(119, 216, 132);
+}
+
+.btn-controls:focus {
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    padding: 1.3rem;
     margin: 1rem;
     opacity: 100%;
     background-color: rgb(119, 216, 132);
