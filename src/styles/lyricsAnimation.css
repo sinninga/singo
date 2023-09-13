@@ -50,8 +50,11 @@
   }
   
   @-webkit-keyframes simple-move {
-    100% {
-      -webkit-transform: translate(4rem, 0);
+    from {
+      transform: translateX(-2.5rem); /* Start off-screen to the right */
+    }
+    to {
+      transform: translateX(2.5rem);
     }
   }
   
