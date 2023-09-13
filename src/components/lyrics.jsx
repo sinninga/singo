@@ -13,7 +13,6 @@ function Lyrics(props) {
   });
   const [selectedLanguage, setSelectedLanguage] = useState('EN'); // Default language is English
 
-
   useEffect(() => {
     if (!props.trackUri) {
       return;
