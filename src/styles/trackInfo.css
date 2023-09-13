@@ -17,6 +17,11 @@
     color: rgb(119, 216, 132);
 }
 
+.all-btns {
+    display: flex;
+    flex-direction: column;
+}
+
 .btn-container {
     display: flex;
     justify-content: center;
@@ -58,6 +63,7 @@
     opacity: 100%;
     background-color: rgb(119, 216, 132);
     border-color: rgb(119, 216, 132);
+    outline: none;
 }
 
 .play-button {
