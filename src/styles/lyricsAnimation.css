@@ -1,5 +1,6 @@
 .animation-container {
   display: flex;
+  justify-content: center;
   animation: slideRight 3s ease;
   transform: translateY(0);
 }
@@ -55,8 +56,11 @@
   }
   
   @keyframes simple-move {
-    100% {
-      transform: translate(3rem, 0);
+    from {
+      transform: translateX(-2.5rem); /* Start off-screen to the right */
+    }
+    to {
+      transform: translateX(2.5rem);
     }
   }
 
