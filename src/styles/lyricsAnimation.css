@@ -1,7 +1,7 @@
 .animation-container {
   display: flex;
   justify-content: center;
-  animation: slideRight 3s ease;
+  animation: slideDown 3s ease;
   transform: translateY(0);
 }
 
@@ -67,6 +67,15 @@
     }
   }
 
+  @-webkit-keyframes slideRight {
+    from {
+      transform: translateX(-100%); /* Start off-screen to the right */
+    }
+    to {
+      transform: translateX(0); /* Move to the original position */
+    }
+  }
+
   @keyframes slideRight {
     from {
       transform: translateX(-100%); /* Start off-screen to the right */
@@ -74,4 +83,22 @@
     to {
       transform: translateX(0); /* Move to the original position */
     }
-}
+  }
+
+  @-webkit-keyframes slideDown {
+    from {
+      transform: translateY(200%); /* Start off-screen to the right */
+    }
+    to {
+      transform: translateY(0); /* Move to the original position */
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(200%); /* Start off-screen to the right */
+    }
+    to {
+      transform: translateY(0); /* Move to the original position */
+    }
+  }

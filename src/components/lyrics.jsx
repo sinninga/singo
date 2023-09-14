@@ -117,6 +117,9 @@ function Lyrics(props) {
     setSelectedLanguage(event.target.value);
   };
 
+  console.log(lyricsData.length)
+  console.log(lyricsData[currentIndex]?.words)
+
   return (
     <div className="lyrics">
       <div className={`lyrics-text ${currentIndex === -1 ? 'intro-animation' : ''}`}>
@@ -131,7 +134,7 @@ function Lyrics(props) {
           </>
         )}
       </div>
-      {currentIndex === -1 && (
+      { !lyricsData[currentIndex]?.words && !translations.current && (
       <div className="animation-container">
         <div className="simple-shape one"></div>
         <div className="simple-shape two"></div>
