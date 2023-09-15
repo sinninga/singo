@@ -150,16 +150,16 @@ function Lyrics(props) {
           onChange={handleLanguageChange}
         >
           <option className="lang" value="EN">English</option>
-          <option className="lang" value="FR">French</option>
           <option className="lang" value="ES">Spanish</option>
+          <option className="lang" value="FR">French</option>
+          <option className="lang" value="JA">Japanese</option>
+          <option className="lang" value="ZH">Chinese</option>
           <option className="lang" value="DE">German</option>
           <option className="lang" value="IT">Italian</option>
           <option className="lang" value="PT">Portuguese</option>
-          <option className="lang" value="NL">Dutch</option>
           <option className="lang" value="RU">Russian</option>
-          <option className="lang" value="ZH">Chinese</option>
-          <option className="lang" value="JA">Japanese</option>
           <option className="lang" value="KO">Korean</option>
+          <option className="lang" value="NL">Dutch</option>
         </select>
       </div>
     </div>
