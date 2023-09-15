@@ -6,11 +6,8 @@ import '../styles/lyricsAnimation.css';
 function Lyrics(props) {
   const [lyricsData, setLyricsData] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(-1);
-  const [translations, setTranslations] = useState({
-    current: '',
-    previous: '',
-    upcoming: '',
-  });
+  const [translations, setTranslations] = useState([]);
+  const [fetchedTranslations, setFetchedTranslations] = useState([]);
   const [selectedLanguage, setSelectedLanguage] = useState('EN'); // Default language is English
 
   useEffect(() => {
@@ -32,12 +29,20 @@ function Lyrics(props) {
         console.log(data);
         if (data && data.lines) {
           setLyricsData(data.lines);
+          fetchTranslationsForAllLines(data.lines);
         }
       })
       .catch(error => {
         console.error('Error fetching lyrics:', error);
       });
   }, [props.trackUri]);
+
+  const fetchTranslationsForAllLines = async (lines) => {
+    const translations = await Promise.all(
+      lines.map(line => fetchTranslation(line.words))
+    );
+    setTranslations(translations);
+  };
 
   useEffect(() => {
     if (lyricsData.length === 0) {
@@ -61,7 +66,7 @@ function Lyrics(props) {
   }, [props.currentTime, lyricsData]);
 
   useEffect(() => {
-    if (currentIndex >= 0) {
+    if (currentIndex >= 0 && !fetchedTranslations[currentIndex]) {
       // Fetch translations using Deepl API for the current, previous, and upcoming lines
       const currentLine = lyricsData[currentIndex].words;
     //   const previousLine = lyricsData[currentIndex - 1]?.words;
@@ -72,16 +77,18 @@ function Lyrics(props) {
         // const previousTranslation = await fetchTranslation(previousLine);
         // const upcomingTranslation = await fetchTranslation(upcomingLine);
 
-        setTranslations({
-          current: currentTranslation || '',
-        //   previous: previousTranslation || '',
-        //   upcoming: upcomingTranslation || '',
-        });
+        const updatedTranslations = [...translations];
+        updatedTranslations[currentIndex] = currentTranslation;
+        setTranslations(updatedTranslations);
+
+        const updatedFetchedTranslations = [...fetchedTranslations];
+        updatedFetchedTranslations[currentIndex] = true;
+        setFetchedTranslations(updatedFetchedTranslations);
       };
 
       fetchTranslations();
     }
-  }, [currentIndex, lyricsData]);
+  }, [currentIndex, lyricsData, translations, fetchedTranslations]);
 
   const fetchTranslation = async (text) => {
     const deepLApiURL = 'http://localhost:5000/translate';
@@ -128,13 +135,13 @@ function Lyrics(props) {
             {/* <p className='previous'>{lyricsData[currentIndex - 1]?.words}</p>
             <p className="translated-previous">{translations.previous}</p> */}
             <p className="current">{lyricsData[currentIndex]?.words}</p>
-            <p className="translated-current">{translations.current}</p>
+            <p className="translated-current">{translations[currentIndex]}</p>
             {/* <p className="upcoming">{lyricsData[currentIndex + 1]?.words}</p>
             <p className="translated-upcoming">{translations.upcoming}</p> */}
           </>
         )}
       </div>
-      { !lyricsData[currentIndex]?.words && !translations.current && (
+      { !lyricsData[currentIndex]?.words && !translations[currentIndex] && (
       <div className="animation-container">
         <div className="simple-shape one"></div>
         <div className="simple-shape two"></div>
