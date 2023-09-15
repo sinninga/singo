@@ -49,7 +49,7 @@ function Lyrics(props) {
       return;
     }
 
-    const currentTimeInMilliseconds = props.currentTime * 1000;
+    const currentTimeInMilliseconds = props.currentTime * 1000 + 500;
 
     // Find the index of the current lyric based on its start time
     for (let i = 0; i < lyricsData.length; i++) {
