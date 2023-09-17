@@ -1,4 +1,7 @@
-
+.lyrics {
+  display: flex;
+  flex-direction: column;
+}
 .previous {
     background-color: white;
     padding: 1rem;
