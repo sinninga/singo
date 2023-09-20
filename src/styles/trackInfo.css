@@ -13,6 +13,12 @@
     max-width: 280px;
 }
 
+@media screen and (max-width: 1000px) {
+    .now-playing-cover {
+        max-width: 100px; 
+    }
+}
+
 .now-playing-artist {
     color: rgb(119, 216, 132);
 }

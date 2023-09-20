@@ -44,12 +44,28 @@
     margin-top: 0rem;
 }
 
+@media screen and (max-width: 1000px) {
+  .current {
+    font-size: 2rem; 
+    padding: 0;
+    height: 6rem;
+  }
+}
+
 .translated-current {
     /* background-color: rgb(119, 216, 132); */
     padding: 1rem;
     color: rgb(119, 216, 132);
     font-size: 2.5rem;
     margin: 0;
+}
+
+@media screen and (max-width: 1000px) {
+  .translated-current {
+      font-size: 2rem; 
+      padding: 0;
+      height: 6rem;
+  }
 }
 
 .language-dropdown {
