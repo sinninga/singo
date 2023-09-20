@@ -5,6 +5,12 @@
   transform: translateY(0);
 }
 
+@media screen and (max-width: 1000px) {
+  .animation-container {
+      display: none;
+  }
+}
+
 .simple-shape {
     width: 2.6rem;
     height: 2.6rem;
