@@ -7,6 +7,7 @@ const Navbar = () => {
       <div className="logo">SLiNGO</div>
       <ul className="nav-links">
         <li><a href="#">Flashcards</a></li>
+        <li><a href="#">Playlists</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
     </nav>
