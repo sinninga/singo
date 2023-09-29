@@ -10,11 +10,10 @@ This is a vite application that allows users to learn a foreign language by list
 
 **Features**
 
-* Search function to find restaurants in any city
-* Ability to switch between food types (Mexican, Indian, Chinese, Thai, Vietnamese)
-* Integration with OpenStreetMaps API for interactive map with updated icons for each food type
-* Integration with Yelp API to filter results for spicy food and prioritize highest reviewed restaurants
-* Cards with restaurant name, address, phone number and links for more information
+* Integration with Spotify SDK to allow users to search for any song
+* Lyrics in original language synced with music in real time
+* Integration with Deepl API for real time translations in 10 languages
+* Rewind/Pause/Fast Forward functionality to allow users to study lyrics at their own pace
 
 **Setup**
 
