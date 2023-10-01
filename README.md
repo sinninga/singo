@@ -2,7 +2,7 @@
 -
 This is a vite application that allows users to learn a foreign language by listening to their favorite music and viewing the translated lyrics
 
-![Screenshot from 2023-09-28 18-11-42](https://github.com/sinninga/singo/assets/36636887/2ba512f7-618e-412f-a0b2-335b9ad1f35e)
+![Screenshot from 2023-10-01 14-46-45](https://github.com/sinninga/singo/assets/36636887/ddf9511e-0fd7-48b8-881d-b8aea9f29828)
 
 **Built With**
 
