@@ -4,6 +4,7 @@ This is a vite application that allows users to learn a foreign language by list
 
 ![Screenshot from 2023-10-01 14-46-45](https://github.com/sinninga/singo/assets/36636887/ddf9511e-0fd7-48b8-881d-b8aea9f29828)
 [Screencast from 10-01-2023 05:00:20 PM.webm](https://github.com/sinninga/singo/assets/36636887/64e0defb-a01e-4252-9495-d3ebe0c242d4)
+[Screencast from 10-01-2023 05:08:41 PM.webm](https://github.com/sinninga/singo/assets/36636887/beec87a5-5e10-4f20-93fa-fb0081bf4c5c)
 
 **Built With**
 
