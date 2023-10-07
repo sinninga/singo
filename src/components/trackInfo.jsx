@@ -27,7 +27,7 @@ const TrackInfo = ({
                     fastForwardButton.focus();
                 }
             } else if (event.keyCode === 40 || event.keyCode === 38) { // 38 is the key code for the up arrow key / 40 for the down arrow key
-                // Simulate a click on the fast-forward-button
+                // Simulate a click on the play-button
                 const playButton = document.querySelector(".play-button");
                 if (playButton) {
                     playButton.click();
