@@ -39,7 +39,7 @@ var auth_query_parameters = new URLSearchParams({
     response_type: "code",
     client_id: spotify_client_id,
     scope: scope,
-    redirect_uri: "/singo/api/auth/callback",
+    redirect_uri: "http://localhost:5000/auth/callback",
     state: state
 })
 
@@ -57,7 +57,7 @@ router.get('/auth/callback', (req, res) => {
       url: 'https://accounts.spotify.com/api/token',
       form: {
         code: code,
-        redirect_uri: "/singo/api/auth/callback",
+        redirect_uri: "http://localhost:5000/auth/callback",
         grant_type: 'authorization_code'
       },
       headers: {
