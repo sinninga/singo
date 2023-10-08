@@ -11,6 +11,7 @@ app.use(express.json());
 app.use(router); 
 app.use(deeplRouter); 
 
+//port update for deployment
 app.listen(port, '0.0.0.0', () => {
   console.log(`Listening on port ${port}`);
 });
