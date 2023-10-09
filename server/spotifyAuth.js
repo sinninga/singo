@@ -78,6 +78,8 @@ router.get('/auth/callback', (req, res) => {
   router.get('/auth/token', (req, res) => {
     console.log('/auth/token endpoint accessed');
 
+    res.setHeader('Content-Type', 'application/json');
+
     res.json(
        {
           access_token: access_token
