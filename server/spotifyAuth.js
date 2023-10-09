@@ -18,7 +18,7 @@ var generateRandomString = function (length) {
   };
 
 router.get('/test', (req, res) => {
-  console.log('test route hit');
+  console.log('test route hit production');
   res.send('Test route response');
 });
 
