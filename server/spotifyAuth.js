@@ -22,7 +22,7 @@ router.get('/test', (req, res) => {
   res.send('Test route response');
 });
 
-router.get('https://slingo.vercel.app/auth/login', (req, res) => {
+router.get('/auth/login', (req, res) => {
 
   console.log('/auth/login endpoint accessed via router');
 
@@ -46,7 +46,7 @@ var auth_query_parameters = new URLSearchParams({
 res.redirect('https://accounts.spotify.com/authorize/?' + auth_query_parameters.toString());
 })
 
-router.get('https://slingo.vercel.app/auth/callback', (req, res) => {
+router.get('/auth/callback', (req, res) => {
 
   console.log('/auth/callback endpoint accessed via app');
 
@@ -57,7 +57,7 @@ router.get('https://slingo.vercel.app/auth/callback', (req, res) => {
       url: 'https://accounts.spotify.com/api/token',
       form: {
         code: code,
-        redirect_uri: "https://slingo.vercel.app/auth/callback",
+        redirect_uri: "/auth/callback",
         grant_type: 'authorization_code'
       },
       headers: {
@@ -75,7 +75,7 @@ router.get('https://slingo.vercel.app/auth/callback', (req, res) => {
     });
   });
 
-  router.get('https://slingo.vercel.app/auth/token', (req, res) => {
+  router.get('/auth/token', (req, res) => {
     console.log('/auth/token endpoint accessed');
 
     res.json(
