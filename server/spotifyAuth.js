@@ -39,7 +39,7 @@ var auth_query_parameters = new URLSearchParams({
     response_type: "code",
     client_id: spotify_client_id,
     scope: scope,
-    redirect_uri: "/auth/login",
+    redirect_uri: "https:slingo.vercel.app/auth/login",
     state: state
 })
 
@@ -57,7 +57,7 @@ router.get('/auth/callback', (req, res) => {
       url: 'https://accounts.spotify.com/api/token',
       form: {
         code: code,
-        redirect_uri: "/auth/callback",
+        redirect_uri: "https://slingo.vercel.app/auth/callback",
         grant_type: 'authorization_code'
       },
       headers: {
