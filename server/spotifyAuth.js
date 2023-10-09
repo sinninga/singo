@@ -57,7 +57,7 @@ router.get('/auth/callback', (req, res) => {
       url: 'https://accounts.spotify.com/api/token',
       form: {
         code: code,
-        redirect_uri: "https://slingo.vercel.app/auth/callback",
+        redirect_uri: "/auth/callback",
         grant_type: 'authorization_code'
       },
       headers: {
