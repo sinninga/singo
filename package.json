@@ -32,5 +32,5 @@
     "request": "^2.88.2",
     "vite": "^4.4.9"
   },
-  "proxy": "http://localhost:5000"
+  "proxy": "https://slingo.vercel.app/"
 }
