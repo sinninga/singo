@@ -10,6 +10,6 @@
        { "src": "/auth/callback", "destination": "/api/auth/callback" },
        { "src": "/auth/token", "destination": "/api/auth/token" },
        { "src": "/test", "destination": "/api/test" },
-       { "src": "/(.*)", "dest": "/app.js" }
+       { "src": "/(.*)", "destination": "/app.js" }
     ]
  }
