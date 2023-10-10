@@ -3,7 +3,7 @@
     "version": 2,
     "name": "slingo",
     "builds": [
-       { "src": "main.jsx", "use": "@vercel/node" }
+       { "src": "/(.*)", "use": "@vercel/node" }
     ],
     "routes": [
        { "src": "/auth/login", "dest": "/api/auth/login" },
