@@ -124,6 +124,7 @@ function Lyrics(props) {
     setSelectedLanguage(event.target.value);
   };
 
+  // Check for fetched lyrics
   console.log(lyricsData.length)
   console.log(lyricsData[currentIndex]?.words)
 
