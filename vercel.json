@@ -1,3 +1,10 @@
 {
-    "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+  "rewrites": [
+    { "source": "/auth/login", "destination": "/api/auth/login" },
+    { "source": "/auth/callback", "destination": "/api/auth/callback" },
+    { "source": "/auth/token", "destination": "/api/auth/token" },
+    { "source": "/test", "destination": "/api/test" },
+    { "source": "/(.*)", "destination": "/api/app" }
+  ]
 }
+
