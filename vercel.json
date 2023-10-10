@@ -10,6 +10,6 @@
        { "src": "/auth/callback", "dest": "/api/auth/callback" },
        { "src": "/auth/token", "dest": "/api/auth/token" },
        { "src": "/test", "dest": "/api/test" },
-       { "src": "/(.*)", "dest": "main.jsx" }
+       { "src": "/(.*)", "dest": "/" }
     ]
  }
