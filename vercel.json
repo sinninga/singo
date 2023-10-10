@@ -1,3 +1,14 @@
 {
-    "rewrites": [{ "source": "/(.*)", "destination": "/" }]
-}
+    "version": 2,
+    "name": "slingo",
+    "builds": [
+      { "src": "index.js", "use": "@vercel/node" }
+    ],
+    "routes": [
+      { "src": "/api/auth/login", "dest": "/auth/login" },
+      { "src": "/api/auth/callback", "dest": "/auth/callback" },
+      { "src": "/api/auth/token", "dest": "/auth/token" },
+      { "src": "/api/test", "dest": "/test" },
+      { "src": "/(.*)", "dest": "index.js" }
+    ]
+  }
