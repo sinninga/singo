@@ -1,0 +1,27 @@
+{
+    "name": "spolingo", 
+    "version": 2, 
+    "routes": [
+      {
+        "src": "/auth/login", 
+        "dest": "/server/index.js" 
+      },
+      {
+        "src": "/auth/callback", 
+        "dest": "/server/index.js" 
+      },
+      {
+        "src": "/translate", 
+        "dest": "/server/deeplServer.js" 
+      },
+      {
+        "handle": "filesystem", 
+        "src": "/public/(.*)",
+        "dest": "/public/$1"
+      },
+      {
+        "src": "/(.*)", 
+        "dest": "/public/index.html"
+      }
+    ]
+  }
