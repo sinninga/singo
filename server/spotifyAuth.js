@@ -39,7 +39,7 @@ var auth_query_parameters = new URLSearchParams({
     response_type: "code",
     client_id: spotify_client_id,
     scope: scope,
-    redirect_uri: "http://localhost:5000/auth/callback",
+    redirect_uri: "https://spolingo.vercel.app/auth/callback",
     state: state
 })
 
@@ -57,7 +57,7 @@ router.get('/auth/callback', (req, res) => {
       url: 'https://accounts.spotify.com/api/token',
       form: {
         code: code,
-        redirect_uri: "http://localhost:5000/auth/callback",
+        redirect_uri: "https://spolingo.vercel.app/auth/callback",
         grant_type: 'authorization_code'
       },
       headers: {
@@ -70,7 +70,7 @@ router.get('/auth/callback', (req, res) => {
     request.post(authOptions, function(error, response, body) {
       if (!error && response.statusCode === 200) {
         access_token = body.access_token;
-        res.redirect('http://localhost:5173/')
+        res.redirect('https://sinninga.github.io/singo/')
       }
     });
   });

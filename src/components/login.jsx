@@ -6,7 +6,7 @@ function Login() {
         <div className="App">
             <header className="App-header">
                 <h1 className="slingo">SLiNGO</h1>
-                <a className="btn-spotify" href="http://localhost:5000/auth/login" >
+                <a className="btn-spotify" href="https://spolingo.vercel.app/auth/login" >
                     Login with Spotify 
                 </a>
             </header>
