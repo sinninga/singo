@@ -1,26 +1,3 @@
 {
-    "name": "spolingo", 
-    "version": 2, 
-    "routes": [
-      {
-        "src": "/auth/login", 
-        "dest": "/server/index.js" 
-      },
-      {
-        "src": "/auth/callback", 
-        "dest": "/server/index.js" 
-      },
-      {
-        "src": "/translate", 
-        "dest": "/server/deeplServer.js" 
-      },
-      { 
-        "src": "/public/(.*)",
-        "dest": "/public/$1"
-      },
-      {
-        "src": "/(.*)", 
-        "dest": "/"
-      }
-    ]
+    "rewrites": [{ "source": "/(.*)", "destination": "/" }]
   }
