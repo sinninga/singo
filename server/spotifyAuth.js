@@ -22,7 +22,7 @@ router.get('/test', (req, res) => {
   res.send('Test route response');
 });
 
-router.get('https://slingo.vercel.app/auth/login', (req, res) => {
+router.get('/auth/login', (req, res) => {
 
   console.log('/auth/login endpoint accessed via router');
 
