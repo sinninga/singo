@@ -1,3 +1,5 @@
+const request = require('request');
+
 const { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET } = process.env;
 
 export default async function handler(req, res) {
