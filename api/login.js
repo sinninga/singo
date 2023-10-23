@@ -24,7 +24,7 @@ export default async function handler(req, res) {
         response_type: "code",
         client_id: SPOTIFY_CLIENT_ID,
         scope: scope,
-        redirect_uri: "https://slingo.vercel.app/auth/callback",
+        redirect_uri: "https://slingo.vercel.app/api/callback",
         state: state
     })
 
