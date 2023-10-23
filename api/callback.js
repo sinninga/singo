@@ -1,4 +1,4 @@
-const request = require('request');
+import request from 'request';
 
 const { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET } = process.env;
 
