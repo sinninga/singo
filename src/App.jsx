@@ -23,7 +23,7 @@ function App() {
 
   return (
     <>
-      { (token === '') ? <Login/> : <WebPlayback token={token} /> }
+      { (token === '' || token === undefined) ? <Login/> : <WebPlayback token={token} /> }
     </>
   )
 }
