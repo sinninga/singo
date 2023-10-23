@@ -1,4 +1,4 @@
-const { spotify_client_id } = process.env;
+const { SPOTIFY_CLIENT_ID } = process.env;
 
 
 var generateRandomString = function (length) {
@@ -22,7 +22,7 @@ export default async function handler(req, res) {
 
     var auth_query_parameters = new URLSearchParams({
         response_type: "code",
-        client_id: spotify_client_id,
+        client_id: SPOTIFY_CLIENT_ID,
         scope: scope,
         redirect_uri: "https://slingo.vercel.app/auth/callback",
         state: state
