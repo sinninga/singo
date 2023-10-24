@@ -25,7 +25,7 @@ export default async function handler(req, res) {
       if (!error && response.statusCode === 200) {
         access_token = body.access_token;
         console.log('Access token received:', access_token);
-        res.redirect('/api/token);
+        res.redirect('/api/token');
       }
     });
 }
