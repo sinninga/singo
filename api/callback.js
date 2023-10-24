@@ -24,7 +24,7 @@ export default async function handler(req, res) {
     request.post(authOptions, function(error, response, body) {
       if (!error && response.statusCode === 200) {
         access_token = body.access_token;
-        res.redirect('/')
+        res.redirect('/?access_token=' + body.access_token);
       }
     });
 }
