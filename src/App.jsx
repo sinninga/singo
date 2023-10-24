@@ -10,7 +10,7 @@ function App() {
   useEffect(() => {
 
     async function getToken() {
-      const response = await fetch('/api/token?access_token=' + body.access_token);
+      const response = await fetch('/api/token);
       console.log("Response:", response);
       const json = await response.json();
       setToken(json.access_token);
