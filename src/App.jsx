@@ -19,7 +19,7 @@ function App() {
 
     getToken();
 
-  }, [token]);
+  }, [token, setToken]);
   
 
   return (
