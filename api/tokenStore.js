@@ -1,4 +1,4 @@
-let access_token = '';
+var access_token = '';
 
 export const getAccessToken = () => access_token;
 
