@@ -1,6 +1,6 @@
 import request from 'request';
-import { setAccessToken } from './tokenStore';
 
+var access_token = "";
 
 const { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET } = process.env;
 
@@ -23,10 +23,9 @@ export default async function handler(req, res) {
   
     request.post(authOptions, function(error, response, body) {
       if (!error && response.statusCode === 200) {
-        var access_token = body.access_token;
-        setAccessToken(access_token);
+        access_token = body.access_token;
         console.log('Access token received:', access_token);
-        res.redirect('/');
+        res.redirect('/api/token?access_token=' + access_token);
       }
     });
 }
