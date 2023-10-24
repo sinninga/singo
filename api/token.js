@@ -9,9 +9,6 @@ export default async function handler(req, res) {
            access_token: access_token
         });
 
-    res.redirect('/');
-
-
     console.log('Response sent:', { access_token });
     
 }
