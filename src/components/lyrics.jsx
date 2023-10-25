@@ -16,7 +16,7 @@ function Lyrics(props) {
     }
 
     const trackId = props.trackUri.split(':').pop();
-    const apiURL = `https://spotify-lyric-api.herokuapp.com/?url=https://open.spotify.com/track/${trackId}`;
+    const apiURL = `https://spotify-lyric-api-984e7b4face0.herokuapp.com/?url=https://open.spotify.com/track/${trackId}`;
 
     fetch(apiURL)
       .then(response => {
