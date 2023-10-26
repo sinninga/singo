@@ -1,32 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import WebPlayback from './components/webplayback';
 import Login from './components/login';
-import './App.css'
+import './App.css';
 
 function App() {
-
-  const [token, setToken] = useState('');
-
-  useEffect(() => {
-
-    async function getToken() {
-      const response = await fetch('/api/token');
-      console.log("Response:", response);
-      const json = await response.json();
-      console.log(json.access_token);
-      setToken(json.access_token);
-    }
-
-    getToken();
-
-  }, []);
-  
+  const urlSearchParams = new URLSearchParams(window.location.search);
+  const params = Object.fromEntries(urlSearchParams.entries());
+  const token = params.access_token || '';
 
   return (
     <>
-      { (token === '' || token === undefined) ? <Login/> : <WebPlayback token={token} /> }
+      {token ? <WebPlayback token={token} /> : <Login />}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
