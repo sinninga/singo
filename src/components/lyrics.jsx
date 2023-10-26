@@ -10,6 +10,7 @@ function Lyrics(props) {
   const [fetchedTranslations, setFetchedTranslations] = useState([]);
   const [selectedLanguage, setSelectedLanguage] = useState('EN'); // Default language is English
   const [translationCount, setTranslationCount] = useState(0);
+  const [translationsLeft, setTranslationsLeft] = useState(3); // Set to your desired daily limit
 
   useEffect(() => {
     if (!props.trackUri) {
@@ -100,6 +101,7 @@ function Lyrics(props) {
       // Reset the daily limit if it's a new day
       localStorage.setItem('translationDate', today.toISOString());
       setTranslationCount(0);
+      setTranslationsLeft(3);
     }
   
     if (translationCount >= 3) {
@@ -133,6 +135,7 @@ function Lyrics(props) {
   
       // After successfully fetching the translation, increment the count
       setTranslationCount(translationCount + 1);
+      setTranslationsLeft(3 - (translationCount + 1)); // Update the remaining translations
   
       return data.translatedText;
     } catch (error) {
