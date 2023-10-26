@@ -9,6 +9,7 @@ function Lyrics(props) {
   const [translations, setTranslations] = useState([]);
   const [fetchedTranslations, setFetchedTranslations] = useState([]);
   const [selectedLanguage, setSelectedLanguage] = useState('EN'); // Default language is English
+  const [translationCount, setTranslationCount] = useState(0);
 
   useEffect(() => {
     if (!props.trackUri) {
@@ -91,14 +92,31 @@ function Lyrics(props) {
   }, [currentIndex, lyricsData, translations, fetchedTranslations]);
 
   const fetchTranslation = async (text) => {
-    const deepLApiURL = '/api/translate';
-
-    const translationRequest = {
-      text,
-      targetLang: selectedLanguage, // Replace with your target language code
-    };
-
+    // Check if the user has exceeded the daily limit
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+  
+    if (localStorage.getItem('translationDate') !== today.toISOString()) {
+      // Reset the daily limit if it's a new day
+      localStorage.setItem('translationDate', today.toISOString());
+      setTranslationCount(0);
+    }
+  
+    if (translationCount >= 3) {
+      // User has exceeded the daily limit, do not fetch the translation
+      console.log('You have exceeded the daily translation limit.');
+      return '';
+    }
+  
     try {
+      // Continue with the translation request
+      const deepLApiURL = '/api/translate';
+  
+      const translationRequest = {
+        text,
+        targetLang: selectedLanguage, // Replace with your target language code
+      };
+  
       const response = await fetch(deepLApiURL, {
         method: 'POST',
         headers: {
@@ -106,18 +124,23 @@ function Lyrics(props) {
         },
         body: JSON.stringify(translationRequest),
       });
-
+  
       if (!response.ok) {
         throw new Error('Failed to fetch translation');
       }
-
+  
       const data = await response.json();
+  
+      // After successfully fetching the translation, increment the count
+      setTranslationCount(translationCount + 1);
+  
       return data.translatedText;
     } catch (error) {
       console.error('Error fetching and translating lyrics:', error);
       return ''; // Return an empty string if translation fails
     }
   };
+  
 
   // Handle language selection change
   const handleLanguageChange = (event) => {
@@ -130,6 +153,9 @@ function Lyrics(props) {
 
   return (
     <div className="lyrics">
+      <div className="translations-left">
+        Translations Left Today: {translationsLeft}
+      </div>
       <div className={`lyrics-text ${currentIndex === -1 ? 'intro-animation' : ''}`}>
         {currentIndex >= 0 && (
           <>
