@@ -20,4 +20,5 @@ This is a vite application that allows users to learn a foreign language by list
 * Rewind/Pause/Fast Forward functionality to allow users to study lyrics at their own pace
 
 **Setup**
+
 Visit: https://slingo.vercel.app
