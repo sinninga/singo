@@ -9,8 +9,8 @@ function Lyrics(props) {
   const [translations, setTranslations] = useState([]);
   const [fetchedTranslations, setFetchedTranslations] = useState([]);
   const [selectedLanguage, setSelectedLanguage] = useState('EN'); // Default language is English
-  const [songCount, setSongCount] = useState(0);
-  const [songsLeft, setSongsLeft] = useState(3); 
+  const [translationCount, setTranslationCount] = useState(0);
+  const [translationsLeft, setTranslationsLeft] = useState(100); // Set to your desired daily limit
 
   useEffect(() => {
     if (!props.trackUri) {
@@ -93,20 +93,20 @@ function Lyrics(props) {
   }, [currentIndex, lyricsData, translations, fetchedTranslations]);
 
   const fetchTranslation = async (text) => {
-    // Check if the user has exceeded the daily song limit
+    // Check if the user has exceeded the daily limit
     const today = new Date();
     today.setHours(0, 0, 0, 0);
   
     if (localStorage.getItem('translationDate') !== today.toISOString()) {
       // Reset the daily limit if it's a new day
       localStorage.setItem('translationDate', today.toISOString());
-      setSongCount(0);
-      setSongsLeft(3);
+      setTranslationCount(0);
+      setTranslationsLeft(100);
     }
   
-    if (songCount >= 3) {
-      // User has exceeded the daily song limit, do not fetch the translation
-      console.log('You have exceeded the daily song translation limit.');
+    if (translationCount >= 100) {
+      // User has exceeded the daily limit, do not fetch the translation
+      console.log('You have exceeded the daily translation limit.');
       return '';
     }
   
@@ -133,16 +133,16 @@ function Lyrics(props) {
   
       const data = await response.json();
   
-      // After successfully fetching the translation, increment the song count
-      setSongCount(songCount + 1);
-      setSongsLeft(3 - (songCount + 1)); // Update the remaining song translations
+      // After successfully fetching the translation, increment the count
+      setTranslationCount(translationCount + 1);
+      setTranslationsLeft(100 - (translationCount + 1)); // Update the remaining translations
   
       return data.translatedText;
     } catch (error) {
       console.error('Error fetching and translating lyrics:', error);
       return ''; // Return an empty string if translation fails
     }
-  };  
+  };
   
 
   // Handle language selection change
@@ -157,7 +157,7 @@ function Lyrics(props) {
   return (
     <div className="lyrics">
       <div className="translations-left">
-        Translations Left Today: {songsLeft}
+        Translations Left Today: {translationsLeft}
       </div>
       <div className={`lyrics-text ${currentIndex === -1 ? 'intro-animation' : ''}`}>
         {currentIndex >= 0 && (
