@@ -74,7 +74,12 @@
     animation: slideUp 3s ease;
     transform: translateY(0);
     z-index: 3;
+}
+
+@media screen and (max-width: 1000px) {
+  .language-dropdown {
     margin-top: -2rem;
+  }
 }
 
 .language-dropdown select {
