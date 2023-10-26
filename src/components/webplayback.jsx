@@ -134,35 +134,39 @@ function WebPlayback(props) {
     
     return (
         <>
-        <Navbar />
-        <div className="container">
-            {!current_track.name && (
-            <h1 className="name">SLiNGO</h1>)}
-            <div className={`all ${is_active ? 'active' : ''}`}>
-                <div className={`everything ${is_active ? 'active' : ''}`}>
-                    <Search 
-                        onSearch={setSearchResults} 
-                        onSelectTrack={playSelectedTrack} 
-                        searchResults={searchResults} 
-                        accessToken={props.token} 
-                    />
-                    <TrackInfo
-                        current_track={current_track}
+        <div className="navbar-container">
+            <Navbar />
+        </div>
+        <div className="content-container">
+            <div className="container">
+                {!current_track.name && (
+                <h1 className="name">SLiNGO</h1>)}
+                <div className={`all ${is_active ? 'active' : ''}`}>
+                    <div className={`everything ${is_active ? 'active' : ''}`}>
+                        <Search 
+                            onSearch={setSearchResults} 
+                            onSelectTrack={playSelectedTrack} 
+                            searchResults={searchResults} 
+                            accessToken={props.token} 
+                        />
+                        <TrackInfo
+                            current_track={current_track}
+                            currentTime={currentTime}
+                            totalDuration={totalDuration}
+                            formatTime={formatTime}
+                            player={player}
+                            is_paused={is_paused}
+                        />
+                    </div>
+                    {is_active && selectedTrack && (
+                    <div className={`lyrics-container ${is_active ? 'active' : ''}`}>
+                        <Lyrics 
+                        trackUri={selectedTrack}
                         currentTime={currentTime}
-                        totalDuration={totalDuration}
-                        formatTime={formatTime}
-                        player={player}
-                        is_paused={is_paused}
-                    />
+                        />
+                    </div>
+                    )}
                 </div>
-                {is_active && selectedTrack && (
-                <div className={`lyrics-container ${is_active ? 'active' : ''}`}>
-                    <Lyrics 
-                    trackUri={selectedTrack}
-                    currentTime={currentTime}
-                    />
-                </div>
-                )}
             </div>
         </div>
         </>

@@ -1,3 +1,15 @@
+.navbar-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.content-container {
+    margin-top: 4rem;
+}
+
 .name {
     margin-bottom: 0;
 }
