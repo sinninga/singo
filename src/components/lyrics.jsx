@@ -91,7 +91,7 @@ function Lyrics(props) {
   }, [currentIndex, lyricsData, translations, fetchedTranslations]);
 
   const fetchTranslation = async (text) => {
-    const deepLApiURL = 'http://localhost:5000/translate';
+    const deepLApiURL = '/api/translate';
 
     const translationRequest = {
       text,
