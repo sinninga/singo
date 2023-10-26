@@ -4,6 +4,6 @@ export default async function handler(req, res) {
     if (!access_token) {
         return res.status(400).json({ error: 'Access token is missing.' });
     }
-    res.redirect('/api/login'); // Replace '/' with your actual homepage route
+    res.redirect('/'); // Replace '/' with your actual homepage route
 
 }
