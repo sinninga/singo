@@ -11,7 +11,7 @@ function Lyrics(props) {
   const [fetchedTranslations, setFetchedTranslations] = useState([]);
   const [selectedLanguage, setSelectedLanguage] = useState('EN'); // Default language is English
   const [translationCount, setTranslationCount] = useState(0);
-  const [translationsLeft, setTranslationsLeft] = useState(20); // Set to your desired daily limit
+  const [translationsLeft, setTranslationsLeft] = useState(40); // Set to your desired daily limit
 
   useEffect(() => {
     if (!props.trackUri) {
@@ -111,7 +111,7 @@ function Lyrics(props) {
       storedCount = 0; // Reset the count
     }
   
-    if (storedCount >= 20) {
+    if (storedCount >= 40) {
       // User has exceeded the daily limit, do not fetch the translation
       console.log('You have exceeded the daily translation limit.');
       return '';
@@ -144,7 +144,7 @@ function Lyrics(props) {
       const newCount = storedCount + 1;
       Cookies.set('translationCount', newCount); // Store the new count in cookies
       setTranslationCount(newCount);
-      setTranslationsLeft(20 - newCount); // Update the remaining translations
+      setTranslationsLeft(40 - newCount); // Update the remaining translations
   
       return data.translatedText;
     } catch (error) {
