@@ -2,6 +2,11 @@
   display: flex;
   flex-direction: column;
 }
+
+.translations-left {
+  color: rgb(235, 94, 94);
+}
+
 .previous {
     background-color: white;
     padding: 1rem;

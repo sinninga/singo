@@ -11,7 +11,7 @@ function Lyrics(props) {
   const [fetchedTranslations, setFetchedTranslations] = useState([]);
   const [selectedLanguage, setSelectedLanguage] = useState('EN'); // Default language is English
   const [translationCount, setTranslationCount] = useState(0);
-  const [translationsLeft, setTranslationsLeft] = useState(100); // Set to your desired daily limit
+  const [translationsLeft, setTranslationsLeft] = useState(20); // Set to your desired daily limit
 
   useEffect(() => {
     if (!props.trackUri) {
