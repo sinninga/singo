@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/lyrics.css';
 import '../styles/lyricsAnimation.css';
+import Cookies from 'js-cookie';
 
 
 function Lyrics(props) {
@@ -97,14 +98,16 @@ function Lyrics(props) {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
   
+    // Read the stored translation count from cookies/local storage
+    let storedCount = parseInt(Cookies.get('translationCount')) || 0;
+  
     if (localStorage.getItem('translationDate') !== today.toISOString()) {
       // Reset the daily limit if it's a new day
       localStorage.setItem('translationDate', today.toISOString());
-      setTranslationCount(0);
-      setTranslationsLeft(100);
+      storedCount = 0; // Reset the count
     }
   
-    if (translationCount >= 100) {
+    if (storedCount >= 20) {
       // User has exceeded the daily limit, do not fetch the translation
       console.log('You have exceeded the daily translation limit.');
       return '';
@@ -133,16 +136,18 @@ function Lyrics(props) {
   
       const data = await response.json();
   
-      // After successfully fetching the translation, increment the count
-      setTranslationCount(translationCount + 1);
-      setTranslationsLeft(100 - (translationCount + 1)); // Update the remaining translations
+      // After successfully fetching the translation, increment the count and update the storage
+      const newCount = storedCount + 1;
+      Cookies.set('translationCount', newCount); // Store the new count in cookies
+      setTranslationCount(newCount);
+      setTranslationsLeft(20 - newCount); // Update the remaining translations
   
       return data.translatedText;
     } catch (error) {
       console.error('Error fetching and translating lyrics:', error);
       return ''; // Return an empty string if translation fails
     }
-  };
+  };  
   
 
   // Handle language selection change
