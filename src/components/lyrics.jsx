@@ -18,6 +18,10 @@ function Lyrics(props) {
       return;
     }
 
+    const storedCount = parseInt(Cookies.get('translationCount')) || 0;
+    setTranslationCount(storedCount);
+    setTranslationsLeft(20 - storedCount);
+
     const trackId = props.trackUri.split(':').pop();
     const apiURL = `https://spotify-lyric-api-984e7b4face0.herokuapp.com/?url=https://open.spotify.com/track/${trackId}`;
 
