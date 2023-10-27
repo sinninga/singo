@@ -21,4 +21,5 @@ This is a vite application that allows users to learn a foreign language by list
 
 **Setup**
 
-Visit: https://slingo.vercel.app
+- Must have Spotify Premium account
+- Visit: https://slingo.vercel.app
