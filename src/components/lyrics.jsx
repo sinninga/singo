@@ -165,9 +165,6 @@ function Lyrics(props) {
 
   return (
     <div className="lyrics">
-      <div className="translations-left">
-        Translations Left Today: {translationsLeft}
-      </div>
       <div className={`lyrics-text ${currentIndex === -1 ? 'intro-animation' : ''}`}>
         {currentIndex >= 0 && (
           <>
@@ -207,6 +204,9 @@ function Lyrics(props) {
           <option className="lang" value="KO">Korean</option>
           <option className="lang" value="NL">Dutch</option>
         </select>
+      </div>
+      <div className="translations-left">
+        Translations Left Today: {translationsLeft}
       </div>
     </div>
   );
