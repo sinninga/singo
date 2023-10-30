@@ -9,10 +9,10 @@
 
 .content-container {
     margin-top: 0rem;
-    height: 93vh;
+    /* height: 93vh; */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     margin-bottom: 7vh;
 }
 
