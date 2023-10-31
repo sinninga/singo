@@ -11,7 +11,7 @@ export default async function handler(req, res) {
       url: 'https://accounts.spotify.com/api/token',
       form: {
         code: code,
-        redirect_uri: "https://slingo.vercel.app/api/callback",
+        redirect_uri: "https://slingotest.vercel.app/api/callback",
         grant_type: 'authorization_code'
       },
       headers: {
