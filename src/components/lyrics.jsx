@@ -205,9 +205,6 @@ function Lyrics(props) {
           <option className="lang" value="NL">Dutch</option>
         </select>
       </div>
-      {/* <div className="translations-left">
-        Translations Left Today: {translationsLeft}
-      </div> */}
     </div>
   );
 }
