@@ -39,11 +39,15 @@
 }
 
 .permission {
-    color: rgb(119, 216, 132);
+    color: white;
     margin-top: 1rem;
 }
 
 .permission2 {
+    color: white;
+}
+
+.green {
     color: rgb(119, 216, 132);
 }
 
