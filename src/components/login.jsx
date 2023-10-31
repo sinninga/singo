@@ -9,8 +9,8 @@ function Login() {
                 <a className="btn-spotify" href="/api/login" >
                     Login with Spotify 
                 </a>
-                <h3 className="permission">This app requires <em className='green'>Spotify Premium</em> and permission from admin</h3>
-                <h3 className="permission2">Email <em className='green'>asinning25@gmail.com</em> for access</h3>
+                <h3 className="permission">This app requires <strong className='green'>Spotify Premium</strong> and permission from admin</h3>
+                <h3 className="permission2">Email <strong className='green'>asinning25@gmail.com</strong> for access</h3>
             </header>
         </div>
     );
