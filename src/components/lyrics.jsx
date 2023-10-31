@@ -11,7 +11,7 @@ function Lyrics(props) {
   const [fetchedTranslations, setFetchedTranslations] = useState([]);
   const [selectedLanguage, setSelectedLanguage] = useState('EN'); // Default language is English
   const [translationCount, setTranslationCount] = useState(0);
-  const [translationsLeft, setTranslationsLeft] = useState(40); // Set to your desired daily limit
+  const [translationsLeft, setTranslationsLeft] = useState(200); // Set to your desired daily limit
 
   useEffect(() => {
     if (!props.trackUri) {
@@ -20,7 +20,7 @@ function Lyrics(props) {
 
     const storedCount = parseInt(Cookies.get('translationCount')) || 0;
     setTranslationCount(storedCount);
-    setTranslationsLeft(40 - storedCount);
+    setTranslationsLeft(200 - storedCount);
 
     const trackId = props.trackUri.split(':').pop();
     const apiURL = `https://spotify-lyric-api-984e7b4face0.herokuapp.com/?url=https://open.spotify.com/track/${trackId}`;
@@ -111,7 +111,7 @@ function Lyrics(props) {
       storedCount = 0; // Reset the count
     }
   
-    if (storedCount >= 40) {
+    if (storedCount >= 200) {
       // User has exceeded the daily limit, do not fetch the translation
       console.log('You have exceeded the daily translation limit.');
       return '';
@@ -144,7 +144,7 @@ function Lyrics(props) {
       const newCount = storedCount + 1;
       Cookies.set('translationCount', newCount); // Store the new count in cookies
       setTranslationCount(newCount);
-      setTranslationsLeft(40 - newCount); // Update the remaining translations
+      setTranslationsLeft(200 - newCount); // Update the remaining translations
   
       return data.translatedText;
     } catch (error) {
@@ -205,9 +205,9 @@ function Lyrics(props) {
           <option className="lang" value="NL">Dutch</option>
         </select>
       </div>
-      <div className="translations-left">
+      {/* <div className="translations-left">
         Translations Left Today: {translationsLeft}
-      </div>
+      </div> */}
     </div>
   );
 }
