@@ -6,8 +6,6 @@ This is a vite application that allows users to learn a foreign language by list
 
 [Screencast from 11-11-2023 11:41:14 PM.webm](https://github.com/sinninga/singo/assets/36636887/f503dec8-42cc-4123-851d-9aec5a29b516)
 
-[Screencast from 10-01-2023 05:08:41 PM.webm](https://github.com/sinninga/singo/assets/36636887/beec87a5-5e10-4f20-93fa-fb0081bf4c5c)
-
 **Built With**
 
 [![My Skills](https://skillicons.dev/icons?i=react,js,html,css,nodejs)](https://skillicons.dev)
